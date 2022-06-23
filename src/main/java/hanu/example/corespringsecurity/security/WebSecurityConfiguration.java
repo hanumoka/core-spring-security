@@ -25,6 +25,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .ignoringAntMatchers("/h2-console/**")
                 .disable(); // GET메소드는 문제가 없는데 POST메소드만 안되서 CSRF 비활성화 시킴
+
+        httpSecurity.formLogin();
+
+        httpSecurity.authorizeRequests().anyRequest().authenticated();
     }
 
 }
