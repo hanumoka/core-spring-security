@@ -3,7 +3,6 @@ package hanu.example.corespringsecurity.service.impl;
 import hanu.example.corespringsecurity.domain.Account;
 import hanu.example.corespringsecurity.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
