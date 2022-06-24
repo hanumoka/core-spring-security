@@ -1,4 +1,4 @@
-package hanu.example.corespringsecurity.entity;
+package hanu.example.corespringsecurity.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

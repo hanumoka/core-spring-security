@@ -1,4 +1,4 @@
-package hanu.example.corespringsecurity.p6spy;
+package hanu.example.corespringsecurity.utill.p6spy;
 
 import com.p6spy.engine.spy.P6SpyOptions;
 import org.springframework.context.annotation.Configuration;

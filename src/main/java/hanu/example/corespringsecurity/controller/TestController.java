@@ -1,6 +1,6 @@
 package hanu.example.corespringsecurity.controller;
 
-import hanu.example.corespringsecurity.entity.Test;
+import hanu.example.corespringsecurity.domain.Test;
 import hanu.example.corespringsecurity.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
