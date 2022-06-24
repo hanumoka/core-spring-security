@@ -1,5 +1,6 @@
 package hanu.example.corespringsecurity.security.config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,6 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // 테스트용 h2 인메모리 콘솔 접속을 위한 시큐리티 설정
         web.ignoring().antMatchers("/h2-console/**");
+
+        // 정적 리로스 파일 대상으로 시큐리티 무시설정 이거 안됨
+//        web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+
+        web
+                .ignoring()
+                .antMatchers("/resources/**"); // #3
     }
 
     @Override
