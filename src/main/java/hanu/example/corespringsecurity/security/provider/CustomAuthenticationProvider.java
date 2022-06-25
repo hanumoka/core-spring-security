@@ -1,10 +1,12 @@
 package hanu.example.corespringsecurity.security.provider;
 
+import hanu.example.corespringsecurity.security.common.FormWebAuthenticationDetails;
 import hanu.example.corespringsecurity.security.service.AccountContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -37,6 +39,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         // 패스워드 말고도 필요한 검증을 이곳에서 처리하면 된다.
+        FormWebAuthenticationDetails formWebAuthenticationDetails =
+                (FormWebAuthenticationDetails) authentication.getDetails();
+        String secretKey = formWebAuthenticationDetails.getSecretKey();
+        if(secretKey == null || !"secret".equals(secretKey)){
+            throw new InsufficientAuthenticationException("InsufficientAuthenticationException");
+        }
 
         //검증이 성공한 검증정보를 authenticationManager에게 다시 리턴한다.
         UsernamePasswordAuthenticationToken authenticationToken =
